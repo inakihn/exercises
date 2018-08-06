@@ -6,7 +6,7 @@ import java.lang.management.ManagementFactory;
 
 import static org.junit.Assert.assertTrue;
 
-// Make me run much faster without changing too much.
+// TODO: Make me run much faster without changing too much.
 
 @RunWith(JUnit4.class)
 public class Exercise1 {
@@ -19,7 +19,7 @@ public class Exercise1 {
     }
 
     private Long sumAllIntegers() {
-        long sum = 0L;
+        Long sum = 0L;
         for (long i = 0; i < Integer.MAX_VALUE; i++) {
             sum += i + i;
         }

@@ -7,12 +7,14 @@ import java.util.EmptyStackException;
 
 import static org.junit.Assert.assertTrue;
 
+// TODO: FIX ME. I have a memory leak.
+
 @RunWith(JUnit4.class)
 public class Exercise2 {
 
-    // You cannot modify these constants.
+    //You cannot modify these constants.
     private static final int LOOPS = 10;
-    private static final int OBJECT_ARRAY_SIZE = 20000000;
+    private static final int OBJECT_ARRAY_SIZE = 2000000000;
 
     @Test
     public void exercise2() {
@@ -43,9 +45,7 @@ public class Exercise2 {
             if (pileSize == 0) {
                 throw new EmptyStackException();
             }
-            Object result = pile[--pileSize];
-            pile[pileSize] = null; // Eliminate obsolete reference
-            return result;
+            return pile[--pileSize];
         }
 
         private void makeThePileBigEnough() {

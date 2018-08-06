@@ -1,14 +1,15 @@
-import static org.junit.Assert.assertEquals;
-
-import java.util.HashSet;
-import java.util.Set;
-
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.JUnit4;
 
-// If sets cannot contain duplicates, why this program output says that the CharPair set contains 260 elements?
-// Can you fix it? charPairs set size must be 26.
+import java.util.HashSet;
+import java.util.Objects;
+import java.util.Set;
+
+import static org.junit.Assert.assertEquals;
+
+// TODO: If sets cannot contain duplicates, why this program output says that the CharPair set contains 260 elements?
+//Can you fix it? charPairs set size must be 26.
 
 @RunWith(JUnit4.class)
 public class Exercise5 {
@@ -41,25 +42,15 @@ public class Exercise5 {
             this.second = second;
         }
 
-        @Override
-        public boolean equals(Object obj) {
-            if (this == obj)
-                return true;
-            if (obj == null)
-                return false;
-            if (getClass() != obj.getClass())
-                return false;
-            CharPair other = (CharPair) obj;
-            return (this.first == other.first && this.second == other.second);
+        public boolean equals(CharPair charPair) {
+            if (this == charPair) return true;
+            if (charPair == null || getClass() != charPair.getClass()) return false;
+            return first == charPair.first &&
+                    second == charPair.second;
         }
 
-        @Override
         public int hashCode() {
-            final int prime = 31;
-            int result = 1;
-            result = prime * result + first;
-            result = prime * result + second;
-            return result;
+            return Objects.hash(first, second);
         }
 
     }
